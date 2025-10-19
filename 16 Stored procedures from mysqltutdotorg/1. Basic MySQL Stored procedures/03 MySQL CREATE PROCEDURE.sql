@@ -1,0 +1,8 @@
+SELECT VERSION();
+
+DELIMITER $$
+CREATE PROCEDURE getALlProducts()
+BEGIN
+SELECT * FROM products where quantityInStock > 1000;
+END $$
+DELIMITER ;

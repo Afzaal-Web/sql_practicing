@@ -1,0 +1,8 @@
+-- 'abc'
+SHOW CHARSET;
+
+CREATE DATABASE DB_101
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
+
+SHOW ENGINES;

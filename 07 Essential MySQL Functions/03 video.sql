@@ -1,0 +1,27 @@
+SELECT NOW(), CURDATE(), CURTIME();
+
+SELECT YEAR(NOW());
+SELECT MONTH(NOW());
+SELECT DAY(NOW());
+SELECT HOUR(NOW());
+SELECT MINUTE(NOW());
+SELECT SECOND(NOW());
+SELECT DAYNAME(NOW());
+SELECT MONTHNAME(NOW());
+SELECT EXTRACT(DAY FROM NOW());
+
+-- EXERCISE
+UPDATE orders
+set order_date = '2025-10-07'
+where order_id in ( 1,2,3);
+SELECT *
+FROM orders
+WHERE order_date >= NOW();
+
+SELECT *
+FROM orders
+WHERE YEAR(order_date) >= EXTRACT(YEAR FROM NOW());
+
+SELECT *, YEAR(order_date) AS order_year
+FROM orders
+WHERE YEAR(order_date) >= EXTRACT(YEAR FROM NOW());
