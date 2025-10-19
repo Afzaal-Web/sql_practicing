@@ -22,7 +22,7 @@ CLOSE cursor_name;
 
 -- declare a cursor
 -- cursor must be declare after any variable declaration
--- if cuursor declare before any variable MYSQL issue an error.
+-- if cursor declare before any variable MYSQL issue an error.
 -- cursor must always associate with a SELCT statment
 
 -- Open Cursor
@@ -135,12 +135,8 @@ SELECT *
 FROM information_schema.tables
 WHERE table_schema = 'classicmodels';
 
-
 -- 2nd Exercise
 
-
-        
-        
 DELIMITER $$
 CREATE PROCEDURE fetch_customers_groupBY()
 BEGIN
