@@ -39,7 +39,9 @@ SHOW GRANTS FOR afzaal;
 
 REVOKE ALL PRIVILEGES
 ON *.*
-FROM afzaal;
+TO afzaal;
+
+FLUSH PRIVILEGES;
 
 REVOKE CREATE VIEW 
 ON sql_store.*
