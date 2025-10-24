@@ -101,4 +101,35 @@ SELECT JSON_VALUE(@invalid, '$.city'
   DEFAULT 'Bad JSON' ON ERROR
 ) AS result;
 
+-- 1. ON EMPTY Examples
+SET @data = '{"name":"Afzaal","age":25}';
+-- Case 1: Key exists
+SELECT JSON_VALUE(@data, '$.name' DEFAULT 'Unknown' ON EMPTY) AS result;
+
+-- Case 2: Key is missing
+SELECT JSON_VALUE(@data, '$.city' DEFAULT 'Unknown' ON EMPTY) AS result;
+
+-- Key missing and ON EMPTY NULL
+SELECT JSON_VALUE(@data, '$.city' NULL ON EMPTY) AS result;
+
+-- Case 4: Key missing and ON EMPTY ERROR
+SELECT JSON_VALUE(@data, '$.city' ERROR ON EMPTY) AS result;
+
+
+-- 2. ON ERROR Examples
+SET @invalid = 'not-a-json';
+
+
+-- Case 1: Default behavior (NULL)
+SELECT JSON_VALUE(@invalid, '$.name') AS result;
+-- Explanation: JSON is invalid → returns NULL silently.
+
+-- Case 2: Use DEFAULT value on error
+SELECT JSON_VALUE(@invalid, '$.name' DEFAULT 'Error found' ON ERROR) AS result;
+
+-- Case 3: Throw error on invalid JSON
+SELECT JSON_VALUE(@invalid, '$.name' ERROR ON ERROR) AS result;
+
+
+
 
