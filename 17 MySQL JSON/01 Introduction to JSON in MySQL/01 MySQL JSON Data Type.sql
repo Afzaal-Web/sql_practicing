@@ -81,6 +81,8 @@ FROM products;
 SELECT JSON_EXTRACT(properties, "$.size[0]")
 FROM products;
 
+SELECT JSON_EXTRACT(properties, "$.size")
+FROM products;
 
 /*
 MySQL supports native JSON data types starting in version 5.7.8.
@@ -91,7 +93,15 @@ Use the JSON_EXTRACT() function to extract data from a JSON document.
 */
 
 
-
+INSERT INTO products (name, price, properties)
+VALUES ('laptop', '77000', 
+'{
+"Component": 
+[
+{"type": "processor", "color": "white"}, 
+{"type": "RAM", "size": "8gb"}
+]
+}');
 
 
 

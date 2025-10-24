@@ -2,6 +2,7 @@
 
 -- Introduction to MySQL JSON_CONTAINS() function
 -- The JSON_CONTAINS() function checks whether a JSON document (target) contains another JSON document (candidate) at a path.
+
 -- syntax
 -- JSON_CONTAINS(target, candidate[,path])
 
